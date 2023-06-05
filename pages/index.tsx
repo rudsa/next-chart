@@ -95,6 +95,7 @@ const Home = () => {
       >
         Update Data
       </button>
+      <button>Destory</button>
       <ChartExample
         chartType={chartType}
         lineChartSeries={lineChartSeries}
