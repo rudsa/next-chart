@@ -38,6 +38,60 @@ const LineChartExmaple = ({ lineChartSeries }: Props) => {
         xaxis: {
           categories: [],
         },
+        tooltip: {
+          enabled: true,
+          enabledOnSeries: undefined,
+          shared: true,
+          followCursor: false,
+          intersect: false,
+          inverseOrder: false,
+          //   custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+          //     return (
+          //       '<div class="arrow_box">' +
+          //       "<span>" +
+          //       series[seriesIndex][dataPointIndex] +
+          //       "</span>" +
+          //       "</div>"
+          //     );
+          //   },
+          theme: "dark",
+
+          fillSeriesColor: false,
+          style: {
+            fontSize: "16px",
+            fontFamily: undefined,
+          },
+          onDatasetHover: {
+            highlightDataSeries: false,
+          },
+          x: {
+            show: true,
+            format: "dd MMM",
+            formatter: undefined,
+          },
+          y: {
+            formatter: undefined,
+            title: {
+              formatter: (seriesName) => seriesName,
+            },
+          },
+          z: {
+            formatter: undefined,
+            title: "Size: ",
+          },
+          marker: {
+            show: true,
+          },
+          items: {
+            display: "flex",
+          },
+          fixed: {
+            enabled: false,
+            position: "topRight",
+            offsetX: 0,
+            offsetY: 0,
+          },
+        },
       }}
     />
   );
