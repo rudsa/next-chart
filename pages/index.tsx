@@ -3,35 +3,61 @@ import ChartExample from "@/src/components/ChartExample";
 
 const lineBasicSeries = [
   {
-    name: "",
-    data: [0],
+    name: "testData",
+    data: [
+      { x: "test1", y: 10 },
+      { x: "test2", y: 60 },
+      { x: "test3", y: 30 },
+      { x: "test4", y: 120 },
+      { x: "test5", y: 75 },
+      { x: "test6", y: 12 },
+      { x: "test7", y: 32 },
+    ],
   },
 ];
 
 const barBasicSeries = [
   {
-    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+    data: [
+      { x: "test1", y: 10 },
+      { x: "test2", y: 20 },
+      { x: "test3", y: 30 },
+      { x: "test4", y: 90 },
+      { x: "test5", y: 130 },
+      { x: "test6", y: 260 },
+      { x: "test7", y: 220 },
+    ],
   },
 ];
 
-const randomLineData = () => {
-  const randomLineArrayData = [];
-  for (let i = 0; i <= 5; i++) {
-    randomLineArrayData.push(Math.floor(Math.random() * 11));
-  }
+const updateLineData = () => {
   return [
     {
       name: "testData",
-      data: randomLineArrayData,
+      data: [
+        { x: "test1", y: 100 },
+        { x: "test2", y: 890 },
+        { x: "test3", y: 56 },
+        { x: "test4", y: 210 },
+        { x: "test5", y: 567 },
+        { x: "test6", y: 268 },
+        { x: "test7", y: 66 },
+      ],
     },
   ];
 };
 
-const randomBarData = () => {
-  const randomBarArrayData = [];
-  for (let i = 0; i <= 5; i++) {
-    randomBarArrayData.push(Math.floor(Math.random() * 101) + 10);
-  }
+const updateBarData = () => {
+  const randomBarArrayData = [
+    { x: "test1", y: 30 },
+    { x: "test2", y: 100 },
+    { x: "test3", y: 130 },
+    { x: "test4", y: 60 },
+    { x: "test5", y: 30 },
+    { x: "test6", y: 200 },
+    { x: "test7", y: 230 },
+  ];
+
   return [
     {
       data: randomBarArrayData,
@@ -62,10 +88,9 @@ const Home = () => {
       </button>
       <button
         onClick={() => {
-          // setLineChartSeries(randomLineData())
           chartType === "line"
-            ? setLineChartSeries(randomLineData())
-            : setBarChartSeries(randomBarData());
+            ? setLineChartSeries(updateLineData())
+            : setBarChartSeries(updateBarData());
         }}
       >
         Update Data
