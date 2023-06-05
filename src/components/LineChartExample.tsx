@@ -1,26 +1,16 @@
 import dynamic from "next/dynamic";
 const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const LineChartExmaple = () => {
+type Props = {
+  lineChartSeries?: any;
+};
+
+const LineChartExmaple = ({ lineChartSeries }: Props) => {
   return (
     <ApexCharts
       type={"line"}
       height={350}
-      series={[
-        {
-          name: "Desktops",
-          data: [
-            { x: "Jan", y: 10 },
-            { x: "Feb", y: 30 },
-            { x: "Mar", y: 40 },
-            { x: "Apr", y: 5 },
-            { x: "May", y: 3 },
-            { x: "Jul", y: 80 },
-            { x: "Aug", y: 95 },
-            { x: "Sep", y: 118 },
-          ],
-        },
-      ]}
+      series={lineChartSeries}
       options={{
         chart: {
           height: 150,

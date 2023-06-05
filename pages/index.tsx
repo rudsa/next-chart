@@ -3,23 +3,46 @@ import ChartExample from "@/src/components/ChartExample";
 
 const lineBasicSeries = [
   {
-    name: "Desktops",
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+    name: "",
+    data: [0],
   },
 ];
 
-const lineUpdateSeries = [
+const barBasicSeries = [
   {
-    name: "Update Desktops",
-    data: [20, 30, 10, 5, 60, 70, 80, 23, 140],
+    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
   },
 ];
 
-const barBasicSeries = [{}];
+const randomLineData = () => {
+  const randomLineArrayData = [];
+  for (let i = 0; i <= 5; i++) {
+    randomLineArrayData.push(Math.floor(Math.random() * 11));
+  }
+  return [
+    {
+      name: "testData",
+      data: randomLineArrayData,
+    },
+  ];
+};
+
+const randomBarData = () => {
+  const randomBarArrayData = [];
+  for (let i = 0; i <= 5; i++) {
+    randomBarArrayData.push(Math.floor(Math.random() * 101) + 10);
+  }
+  return [
+    {
+      data: randomBarArrayData,
+    },
+  ];
+};
 
 const Home = () => {
   const [chartType, setChartType] = useState("line");
-  const [series, setSeries] = useState(lineBasicSeries);
+  const [lineChartSeries, setLineChartSeries] = useState(lineBasicSeries);
+  const [barChartSeries, setBarChartSeries] = useState(barBasicSeries);
   return (
     <div>
       <h2>Chart Example</h2>
@@ -39,12 +62,19 @@ const Home = () => {
       </button>
       <button
         onClick={() => {
-          setSeries(lineUpdateSeries);
+          // setLineChartSeries(randomLineData())
+          chartType === "line"
+            ? setLineChartSeries(randomLineData())
+            : setBarChartSeries(randomBarData());
         }}
       >
         Update Data
       </button>
-      <ChartExample chartType={chartType} />
+      <ChartExample
+        chartType={chartType}
+        lineChartSeries={lineChartSeries}
+        barChartSeries={barChartSeries}
+      />
     </div>
   );
 };

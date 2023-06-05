@@ -3,12 +3,22 @@ import BarChartExmaple from "./BarChartExample";
 
 type Props = {
   chartType?: string;
+  lineChartSeries?: any;
+  barChartSeries?: any;
 };
 
-const ChartExample = ({ chartType }: Props) => {
+const ChartExample = ({
+  chartType,
+  lineChartSeries,
+  barChartSeries,
+}: Props) => {
   return (
     <div>
-      {chartType === "line" ? <LineChartExmaple /> : <BarChartExmaple />}
+      {chartType === "line" ? (
+        <LineChartExmaple lineChartSeries={lineChartSeries} />
+      ) : (
+        <BarChartExmaple barChartSeries={barChartSeries} />
+      )}
     </div>
   );
 };
